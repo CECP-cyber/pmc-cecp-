@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>PMC CECP — Centro Estratégico de Contención y Protección</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Stardos+Stencil&display=swap" rel="stylesheet">
+<style>
+:root{ --bg:#0b0c0b; --muted:#98a3ad; --accent:#30e27a; --text:#f6f8f7; --card-bg: rgba(255,255,255,0.02); }
+html,body{height:100%;margin:0;background:var(--bg);color:var(--text);font-family:'Roboto', system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;-webkit-font-smoothing:antialiased;}
+body{background-image:url('img/bg_camo.jpg');background-repeat:repeat;background-size:cover;background-attachment:fixed;background-position:center center;}
+
+/* Intro professional: panel a la derecha con logo y texto */
+to{opacity:1;transform:none}}
+/* hide after fade */
+}
+
+/* watermark and floating logo */
+.watermark{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);z-index:1;pointer-events:none;width:760px;height:760px;display:flex;align-items:center;justify-content:center;opacity:0.07;}
+.watermark img{width:420px;height:auto;object-fit:contain;filter:grayscale(0.05) contrast(0.95) saturate(0.6) drop-shadow(0 10px 30px rgba(0,0,0,0.6));background:transparent;}
+
+.floating-area{position:fixed;top:18px;right:18px;z-index:20;display:flex;align-items:center;gap:12px;pointer-events:none;}
+.floating-logo{width:140px;height:140px;perspective:900px;}
+@keyframes spinLR{from{transform:rotateY(0deg)}50%{transform:rotateY(180deg)}to{transform:rotateY(360deg)}}
+.floating-logo img{width:100%;height:100%;object-fit:contain;transform-origin:center center;animation:spinLR 6s linear infinite;background:transparent;}
+.lema-box{color:var(--muted);font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:1px;max-width:260px;opacity:0.95;}
+
+/* layout */
+.wrap{position:relative;z-index:10;max-width:1220px;margin:140px auto 48px;padding:22px;}
+header{display:flex;align-items:center;gap:16px;position:relative;z-index:12;}
+.site-title{margin:0;color:var(--text);font-size:22px;letter-spacing:1px;font-weight:800;}
+.lead{margin:4px 0 0 0;color:var(--muted);font-size:13px;}
+nav{margin-left:18px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;}
+nav a{padding:8px 10px;border-radius:8px;color:var(--text);font-weight:700;background:transparent;border:1px solid transparent;transition:background .18s,border-color .18s;}
+nav a:hover{background:rgba(255,255,255,0.02);border-color:rgba(230,235,225,0.06);color:var(--accent);}
+
+main{margin-top:18px;display:grid;gap:18px;z-index:10;position:relative;}
+section{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.015));border-radius:12px;padding:16px;border:1px solid rgba(255,255,255,0.02);box-shadow:0 8px 30px rgba(0,0,0,0.6);}
+h2{color:var(--accent);margin:0 0 8px 0;font-size:18px;text-transform:uppercase;letter-spacing:0.8px;font-family:'Stardos Stencil',sans-serif;}
+.muted{color:var(--muted);font-size:14px;}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px;margin-top:12px;}
+.card{background:var(--card-bg);border-radius:12px;padding:12px;position:relative;overflow:hidden;border:0;box-shadow:0 8px 28px rgba(0,0,0,0.45);transition:transform .22s cubic-bezier(.2,.9,.25,1),box-shadow .22s;}
+.card:hover{transform:translateY(-8px);box-shadow:0 22px 70px rgba(0,0,0,0.75);}
+.card iframe{width:100%;height:300px;border-radius:8px;border:0;background:#000;display:block;opacity:0;transform:translateY(6px);transition:opacity .7s ease, transform .7s;}
+.card.visible iframe{opacity:1;transform:none;}
+
+.title{color:var(--text);font-weight:800;margin-top:8px;font-size:1.06rem;}
+.specs{margin-top:10px;color:var(--muted);font-size:0.95rem;display:grid;gap:8px;}
+.spec-row{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:8px;background:rgba(255,255,255,0.01);border-radius:8px;border:0;}
+.spec-left{color:var(--muted);font-weight:700;font-size:0.9rem;}
+.spec-right{color:#dfffe4;font-weight:800;font-size:0.92rem;}
+
+.price{display:inline-block;padding:6px 9px;background:rgba(0,0,0,0.35);border-radius:8px;color:var(--text);font-weight:800;}
+
+footer{margin-top:18px;color:var(--muted);font-size:13px;text-align:center;padding-top:8px;border-top:1px solid rgba(255,255,255,0.02);}
+
+@media (prefers-reduced-motion: reduce){.floating-logo img{animation:none;transform:rotateY(6deg);} .watermark{animation:none;}}
+@media (max-width:920px){.floating-area{top:10px;right:10px;gap:8px;} .floating-logo{width:120px;height:120px;} .watermark{width:420px;height:420px;opacity:0.06;} .card iframe{height:230px;} nav{display:none;}}
+</style>
+</head>
+<body>
+  </div>
+  </div>
+
+  <div class="watermark" aria-hidden="true">
+    <img src="img/PMC10_trans.png" alt="PMC CECP watermark">
+  </div>
+
+  <div class="floating-area" aria-hidden="true">
+    <div class="floating-logo"><img src="img/PMC10_trans.png" alt="PMC CECP logo"></div>
+    <div class="lema-box">Paciencia, Sorpresa y Precisión</div>
+  </div>
+
+  <div class="wrap" role="main">
+    <header>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div style="width:44px;height:44px;" aria-hidden="true">
+          <img src="img/PMC10_trans.png" alt="logo small" style="width:44px;height:44px;object-fit:contain;">
+        </div>
+        <div>
+          <h1 class="site-title">PMC CECP</h1>
+          <div class="lead">Private Military Company — Seguridad privada, consultoría y formación táctica</div>
+        </div>
+      </div>
+
+      <nav aria-label="Main navigation">
+        <a href="#about">Sobre</a>
+        <a href="#armas">Armas</a>
+        <a href="#equipamiento">Equipamiento</a>
+        <a href="#cuchillos">Cuchillos</a>
+        <a href="#accesorios">Accesorios</a>
+        <a href="#pagos">Pagos</a>
+        <a href="#contact">Contacto</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="about">
+        <h2>Sobre</h2>
+        <p class="muted">PMC CECP (Centro Estratégico de Contención y Protección) ofrece servicios integrales de seguridad privada, protección ejecutiva, formación táctica, consultoría en gestión de riesgo y ciberseguridad. Operamos dentro de los marcos legales vigentes y con énfasis en profesionalismo y cumplimiento ético.</p>
+      </section>
+
+      <section id="armas">
+        <h3 style="color:var(--text);margin-top:12px;">Armamento de Precisión</h3>
+        <div class="grid">
+          <article class="card">
+            <iframe title="[BA] M107" src="https://sketchfab.com/models/03e0263e90454f3ca1ce7a558e6658dc/embed" loading="lazy" allow="autoplay; fullscreen; xr-spatial-tracking"></iframe>
+            <div class="title">M107 — Rifle antimaterial (.50 BMG)</div>
+            <div class="specs">
+              <div class="spec-row"><div class="spec-left">Calibre</div><div class="spec-right">.50 BMG (12.7×99 mm)</div></div>
+              <div class="spec-row"><div class="spec-left">Alcance efectivo</div><div class="spec-right">~1,800 m</div></div>
+              <div class="spec-row"><div class="spec-left">Uso</div><div class="spec-right">Antiblindaje / largo alcance</div></div>
+              <div class="spec-row"><div class="spec-left">Precio estimado</div><div class="spec-right price">$10,000 – $15,000</div></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <iframe title="Barrett M82 A1" src="https://sketchfab.com/models/499195fd926c4016ae5aead4b9e33fb2/embed" loading="lazy" allow="autoplay; fullscreen; xr-spatial-tracking"></iframe>
+            <div class="title">Barrett M82 A1 — Rifle antimaterial</div>
+            <div class="specs">
+              <div class="spec-row"><div class="spec-left">Calibre</div><div class="spec-right">.50 BMG</div></div>
+              <div class="spec-row"><div class="spec-left">Alcance efectivo</div><div class="spec-right">~1,500–1,800 m</div></div>
+              <div class="spec-row"><div class="spec-left">Uso</div><div class="spec-right">Antiblindaje y neutralización de material</div></div>
+              <div class="spec-row"><div class="spec-left">Precio estimado</div><div class="spec-right price">$8,000 – $16,000</div></div>
+            </div>
+          </article>
+        </div>
+
+        <h3 style="color:var(--text);margin-top:12px;">Carabinas tácticas</h3>
+        <div class="grid">
+          <article class="card">
+            <iframe title="Lone Star Armory TX-15" src="https://sketchfab.com/models/b6a4be500b94420a822c5bba19369937/embed" loading="lazy" allow="autoplay; fullscreen; xr-spatial-tracking"></iframe>
+            <div class="title">TX-15 — Carabina táctica</div>
+            <div class="specs">
+              <div class="spec-row"><div class="spec-left">Calibre</div><div class="spec-right">5.56×45 mm NATO</div></div>
+              <div class="spec-row"><div class="spec-left">Peso</div><div class="spec-right">~3.4 kg</div></div>
+              <div class="spec-row"><div class="spec-left">Uso</div><div class="spec-right">Operaciones tácticas y defensa</div></div>
+              <div class="spec-row"><div class="spec-left">Precio estimado</div><div class="spec-right price">$2,000 – $3,500</div></div>
+            </div>
+          </article>
+        </div>
+
+        <h2>Armas — Fichas ampliadas</h2>
+        <p class="muted">Cada ficha incluye: calibre, fiabilidad, material / peso, alcance efectivo, cadencia (si aplica), aditamentos recomendados, uso preferente, preferencia por fuerzas especiales y precio estimado.</p>
+        <div class="grid">
+
+<!-- SPAS-12 -->
+<article class="card">
+  <iframe title="SPAS-12" src="https://sketchfab.com/models/99b201fd7ee042ea93e8e72283f17995/embed" loading="lazy" allow="autoplay; fullscreen; xr-spatial-tracking"></iframe>
+  <div class="title">SPAS-12 — Escopeta táctica</div>
+  <div class="specs">
+    <div class="spec-row"><div class="spec-left">Calibre</div><div class="spec-right">12 gauge</div></div>
+    <div class="spec-row"><div class="spec-left">Fiabilidad</div><div class="spec-right">Media-Alta (sensible a tipos de munición)</div></div>
+    <div class="spec-row"><div class="spec-left">Peso / Material</div><div class="spec-right">3.6–4.5 kg; acero y polímeros</div></div>
+    <div class="spec-row"><div class="spec-left">Alcance efectivo</div><div class="spec-right">0–50 m</div></div>
+    <div class="spec-row"><div class="spec-left">Aditamentos</div><div class="spec-right">Culata plegable, mira reflex, linterna</div></div>
+    <div class="spec-row"><div class="spec-left">Uso preferente</div><div class="spec-right">CQB / apertura de brechas</div></div>
+    <div class="spec-row"><div class="spec-left">Preferencia SF</div><div class="spec-right">Moderada</div></div>
+    <div class="spec-row"><div class="spec-left">Precio estimado</div><div class="spec-right price">$250 – $1,200</div></div>
+  </div>
+</article>
+
+<!-- AR-15 -->
+<article class="card">
+  <iframe title="AR-15" src="https://sketchfab.com/models/50d33435445e439c95e3b36e9d4bd798/embed" loading="lazy" allow="autoplay; fullscreen; xr-spatial-tracking"></iframe>
+  <div class="title">AR-15 — Plataforma modular</div>
+  <div class="specs">
+    <div class="spec-row"><div class="spec-left">Calibre</div><div class="spec-right">5.56×45 mm NATO</div></div>
+    <div class="spec-row"><div class="spec-left">Fiabilidad</div><div class="spec-right">Alta (con mantenimiento)</div></div>
+    <div class="spec-row"><div class="spec-left">Peso / Material</div><div class="spec-right">2.7–3.6 kg; aluminio, acero, polímero</div></div>
+    <div class="spec-row"><div class="spec-left">Alcance efectivo</div><div class="spec-right">0–500 m</div></div>
+    <div class="spec-row"><div class="spec-left">Cadencia</div><div class="spec-right">600–900 rpm (teórica)</div></div>
+    <div class="spec-row"><div class="spec-left">Aditamentos</div><div class="spec-right">Red dot, ACOG, supresor, linterna</div></div>
+    <div class="spec-row"><div class="spec-left">Uso preferente</div><div class="spec-right">Escolta, patrullaje, unidades tácticas</div></div>
+    <div class="spec-row"><div class="spec-left">Preferencia SF</div><div class="spec-right">Alta</div></div>
+    <div class="spec-row"><div class="spec-left">Precio estimado</div><div class="spec-right price">$700 – $1,800</div></div>
+  </div>
+</article>
+
+<!-- AK-47 -->
+<article class="card">
+  <iframe title="AK-47" src="https://sketchfab.com/models/384565b1779c450b90397232163e4e6d/embed" loading="lazy" allow="autoplay; fullscreen; xr-spatial-tracking"></iframe>
+  <div class="title">AK-47 — Rifle de asalto</div>
+  <div class="specs">
+    <div class="spec-row"><div class="spec-left">Calibre</div><div class="spec-right">7.62×39 mm</div></div>
+    <div class="spec-row"><div class="spec-left">Fiabilidad</div><div class="spec-right">Muy alta (condiciones adversas)</div></div>
+    <div class="spec-row"><div class="spec-left">Peso / Material</div><div class="spec-right">3.3–4.5 kg; acero y madera/polímero</div></div>
+    <div class="spec-row"><div class="spec-left">Alcance efectivo</div><div class="spec-right">0–400 m</div></div>
+    <div class="spec-row"><div class="spec-left">Aditamentos</div><div class="spec-right">Red dot, culata mejorada, supresor</div></div>
+    <div class="spec-row"><div class="spec-left">Uso preferente</div><div class="spec-right">Escenarios rústicos / campo</div></div>
+    <div class="spec-row"><div class="spec-left">Preferencia SF</div><div class="spec-right">Moderada</div></div>
+    <div class="spec-row"><div class="spec-left">Precio estimado</div><div class="spec-right price">$600 – $1,800</div></div>
+  </div>
+</article>
+
+<!-- Glock 17 -->
+<article class="card">
+  <div class="title">Glock 17 — Pistola semiautomática</div>
+  <div class="specs">
+    <div class="spec-row"><div class="spec-left">Calibre</div><div class="spec-right">9×19 mm Parabellum</div></div>
+    <div class="spec-row"><div class="spec-left">Fiabilidad</div><div class="spec-right">Muy alta</div></div>
+    <div class="spec-row"><div class="spec-left">Peso / Material</div><div class="spec-right">~625 g (vacía); polímero y acero</div></div>
+    <div class="spec-row"><div class="spec-left">Capacidad</div><div class="spec-right">17+1</div></div>
+    <div class="spec-row"><div class="spec-left">Aditamentos</div><div class="spec-right">Rail, óptica micro, supresor (adaptador)</div></div>
+    <div class="spec-row"><div class="spec-left">Uso preferente</div><div class="spec-right">Seguridad personal, fuerzas policiales</div></div>
+    <div class="spec-row"><div class="spec-left">Preferencia SF</div><div class="spec-right">Alta</div></div>
+    <div class="spec-row"><div class="spec-left">Precio estimado</div><div class="spec-right price">$400 – $700</div></div>
+  </div>
+</article>
+
+<!-- Remington 700 -->
+<article class="card">
+  <div class="title">Remington 700 — Rifle de precisión</div>
+  <div class="specs">
+    <div class="spec-row"><div class="spec-left">Calibre</div><div class="spec-right">.308 Win / .300 Win / .338 Lapua</div></div>
+    <div class="spec-row"><div class="spec-left">Fiabilidad</div><div class="spec-right">Muy alta</div></div>
+    <div class="spec-row"><div class="spec-left">Alcance efectivo</div><div class="spec-right">600–1500 m</div></div>
+    <div class="spec-row"><div class="spec-left">Aditamentos</div><div class="spec-right">Óptica, bípode, supresor</div></div>
+    <div class="spec-row"><div class="spec-left">Preferencia SF</div><div class="spec-right">Muy alta</div></div>
+    <div class="spec-row"><div class="spec-left">Precio estimado</div><div class="spec-right price">$1,200 – $6,500</div></div>
+  </div>
+</article>
+
+<!-- Barrett M82 -->
+<article class="card">
+  <div class="title">Barrett M82 / M107 — Antimaterial</div>
+  <div class="specs">
+    <div class="spec-row"><div class="spec-left">Calibre</div><div class="spec-right">.50 BMG</div></div>
+    <div class="spec-row"><div class="spec-left">Fiabilidad</div><div class="spec-right">Alta</div></div>
+    <div class="spec-row"><div class="spec-left">Alcance efectivo</div><div class="spec-right">1,500–1,800 m</div></div>
+    <div class="spec-row"><div class="spec-left">Uso preferente</div><div class="spec-right">Antimaterial</div></div>
+    <div class="spec-row"><div class="spec-left">Precio estimado</div><div class="spec-right price">$8,000 – $15,000</div></div>
+  </div>
+</article>
+
+        </div>
+      </section>
+
+      <section id="equipamiento">
+        <h2>Equipamiento — Fichas ampliadas</h2>
+        <p class="muted">Equipamiento esencial: chalecos, cascos, NVG, ópticas, linternas, mochilas. Información técnica y uso recomendado.</p>
+        <div class="grid">
+          <article class="card">
+            <iframe title="DUAL PVS" src="https://sketchfab.com/models/a0c0a4301cb648cbb7afb4244f69d0f6/embed" loading="lazy"></iframe>
+            <div class="title">DUAL PVS — Visores nocturnos</div>
+            <div class="specs">
+              <div class="spec-row"><div class="spec-left">Tipo</div><div class="spec-right">Binocular NVG (Imagen intensificada)</div></div>
+              <div class="spec-row"><div class="spec-left">Uso</div><div class="spec-right">Operaciones nocturnas, reconocimiento</div></div>
+              <div class="spec-row"><div class="spec-left">Precio estimado</div><div class="spec-right price">$400 – $3,000</div></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <iframe title="OPSCORE" src="https://sketchfab.com/models/f30a27b6d4bf43fa92457a195e1d7175/embed" loading="lazy"></iframe>
+            <div class="title">OPSCORE — Casco de combate</div>
+            <div class="specs"><div class="spec-row"><div class="spec-left">Nivel</div><div class="spec-right">Protección balística modular</div></div><div class="spec-row"><div class="spec-left">Precio estimado</div><div class="spec-right price">$120 – $900</div></div></div>
+          </article>
+
+        </div>
+      </section>
+
+      <section id="cuchillos">
+        <h2>Cuchillos — Herramientas y uso</h2>
+        <div class="grid">
+          <article class="card">
+            <iframe title="Melees" src="https://sketchfab.com/models/ee49a11f114947b28848b1ee199b203d/embed" loading="lazy"></iframe>
+            <div class="title">Set táctico — Cuchillos</div>
+            <div class="specs"><div class="spec-row"><div class="spec-left">Material</div><div class="spec-right">Acero carbono / inoxidable</div></div><div class="spec-row"><div class="spec-left">Precio estimado</div><div class="spec-right price">$25 – $450</div></div></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="accesorios">
+        <h2>Accesorios tácticos</h2>
+        <div class="grid">
+          <article class="card">
+            <iframe title="Guantes" src="https://sketchfab.com/models/00e141bdd6b741358be1f18acbe318b6/embed" loading="lazy"></iframe>
+            <div class="title">Guantes tácticos</div>
+            <div class="specs"><div class="spec-row"><div class="spec-left">Material</div><div class="spec-right">Kevlar / cuero sintético</div></div><div class="spec-row"><div class="spec-left">Precio estimado</div><div class="spec-right price">$18 – $120</div></div></div>
+          </article>
+
+          <article class="card">
+            <iframe title="Linterna" src="https://sketchfab.com/models/381731a1d75242568845f038eb320184/embed" loading="lazy"></iframe>
+            <div class="title">Linterna táctica</div>
+            <div class="specs"><div class="spec-row"><div class="spec-left">Potencia</div><div class="spec-right">400–2000 lumens</div></div><div class="spec-row"><div class="spec-left">Precio estimado</div><div class="spec-right price">$12 – $220</div></div></div>
+          </article>
+
+          <article class="card">
+            <iframe title="Mochila" src="https://sketchfab.com/models/7ccf2a7c057a4e249db04d7873f05208/embed" loading="lazy"></iframe>
+            <div class="title">Mochila táctica (MOLLE)</div>
+            <div class="specs"><div class="spec-row"><div class="spec-left">Capacidad</div><div class="spec-right">20–40 L</div></div><div class="spec-row"><div class="spec-left">Material</div><div class="spec-right">Cordura 500–1000D</div></div><div class="spec-row"><div class="spec-left">Precio estimado</div><div class="spec-right price">$35 – $350</div></div></div>
+          </article>
+        </div>
+      </section>
+
+      
+      <section id="vehiculos">
+        <h2>Vehículos Blindados</h2>
+        <p class="muted">Modelos de vehículos blindados y de apoyo, con ficha técnica básica.</p>
+        <div class="grid">
+          <article class="card">
+            <iframe title="[BA] IFAV M2" src="https://sketchfab.com/models/6555f06d57f546da9c1407cf783ead6a/embed" loading="lazy" allow="autoplay; fullscreen; xr-spatial-tracking"></iframe>
+            <div class="title">IFAV M2 — Vehículo blindado de asalto</div>
+            <div class="specs">
+              <div class="spec-row"><div class="spec-left">Tipo</div><div class="spec-right">Infantry Fighting / Assault Vehicle (IFAV)</div></div>
+              <div class="spec-row"><div class="spec-left">Tripulación</div><div class="spec-right">3 (con hasta 6 pasajeros)</div></div>
+              <div class="spec-row"><div class="spec-left">Protección</div><div class="spec-right">Blindaje ligero / nivel balístico mejorable con placas modulares</div></div>
+              <div class="spec-row"><div class="spec-left">Uso</div><div class="spec-right">Transporte y apoyo táctico en zonas de alta movilidad</div></div>
+              <div class="spec-row"><div class="spec-left">Popularidad</div><div class="spec-right">Alta en fuerzas mecanizadas y contratistas que requieren movilidad protegida</div></div>
+              <div class="spec-row"><div class="spec-left">Precio estimado</div><div class="spec-right price">$150,000 – $600,000</div></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="pagos">
+        <h2>Formas de pago</h2>
+        <p class="muted">Aceptamos transferencias bancarias, PayPal y criptomonedas (BTC/USDT). Para opciones de pago y facturación, contáctanos en el correo.</p>
+      </section>
+
+      <section id="contact">
+        <h2>Contacto</h2>
+        <p class="muted">Para cotizaciones, pedidos o información institucional, contáctanos:</p>
+        <p><strong>Email:</strong> <a href="mailto:pmccecp@gmail.com" style="color:var(--accent); text-decoration:none;">pmccecp@gmail.com</a></p>
+      </section>
+
+      <footer>
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+          <div><strong>PMC CECP — Centro Estratégico de Contención y Protección</strong></div>
+          <div style="color:var(--muted)">Paciencia, Sorpresa y Precisión</div>
+        </div>
+        <div style="margin-top:8px;color:var(--muted)">© 2025 PMC CECP — Información profesional y neutral.</div>
+      </footer>
+
+    </main>
+  </div>
+
+
+</body>
+</html>
